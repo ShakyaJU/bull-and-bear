@@ -1,6 +1,6 @@
 🐂🐻 Bull & Bear
 Nepal stock market at a glance — a personal portfolio project built to explore modern Flutter architecture, state management, and real-world API integration challenges.
-> ⚠️ Personal/educational project. Not affiliated with the Nepal Stock Exchange (NEPSE) or any brokerage. See [Data Source & Disclaimers](#-data-source--disclaimers) below
+> ⚠️ Personal/educational project. Not affiliated with the Nepal Stock Exchange (NEPSE) or any brokerage. See [Data Source & Disclaimers](#-data-source--disclaimers) below.
 <!-- 
   DEMO GIF: save your screen-recording as demo.gif inside a folder called
   docs/ in the project root (create the folder if it doesn't exist), then
