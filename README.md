@@ -100,7 +100,7 @@ app usable (and clearly labeled as such) if the live API is down.
 
 ## 📱 Screenshots
 
-| Splash Screen | Home | Watchlist |
+| Splash Screen | Dashboard | Watchlist |
 |:---:|:---:|:---:|
 | <img src="app-screenshots/Splash Screen.jpg" width="220"> | <img src="app-screenshots/Dashboard.jpg" width="220"> | <img src="app-screenshots/Watchlist.jpg" width="220"> |
 
@@ -110,7 +110,7 @@ app usable (and clearly labeled as such) if the live API is down.
 
 | More — Appearance | More — About |
 |:---:|:---:|
-| <img src="app-screenshots/More-Theme.jpg" width="220"> | <img src="app-screenshots/More-About.jpg" width="220"> |
+| <img src="app-screenshots/More-About.jpg" width="220"> | <img src="app-screenshots/More-Theme.jpg" width="220"> |   
 
 ---
 
