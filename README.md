@@ -1,89 +1,173 @@
-🐂🐻 Bull & Bear
-Nepal stock market at a glance — a personal portfolio project built to explore modern Flutter architecture, state management, and real-world API integration challenges.
-> ⚠️ Personal/educational project. Not affiliated with the Nepal Stock Exchange (NEPSE) or any brokerage. See [Data Source & Disclaimers](#-data-source--disclaimers) below.
-<!-- 
-  DEMO GIF: save your screen-recording as demo.gif inside a folder called
-  docs/ in the project root (create the folder if it doesn't exist), then
-  this line will automatically show it once pushed to GitHub.
-![Demo](docs/demo.gif)
----
-✨ Features
-Home Dashboard — live NEPSE index, market summary (turnover, transactions, scrips traded), and today's top gainers/losers
-Watchlist — star any stock to track it, saved locally on your device
-Market — searchable, sector-filterable directory of listed companies
-Portfolio — manually log your holdings and see real-time profit/loss
-Light & dark theme — follows system setting or choose manually, remembered across launches
-Offline-aware — clearly distinguishes "no internet" from "market data feed unavailable," and never silently mixes real and demo data
-Auto-refreshing data — pulls fresh market data every 60 seconds in the background
-📸 Screenshots
-<!--
-  Save each screenshot into docs/screenshots/ with these exact filenames
-  and they'll appear automatically once you push:
-    docs/screenshots/home.png
-    docs/screenshots/watchlist.png
-    docs/screenshots/market.png
-    docs/screenshots/portfolio.png
-    docs/screenshots/more.png
-Home	Watchlist	Market
-![Home](docs/screenshots/home.png)	![Watchlist](docs/screenshots/watchlist.png)	![Market](docs/screenshots/market.png)
+<h1 align="center">Bull & Bear</h1>
 
-Portfolio	More / Settings
-![Portfolio](docs/screenshots/portfolio.png)	![More](docs/screenshots/more.png)
-🏗️ Architecture
-Feature-first structure with an MVVM + Repository pattern in each feature:
-```mermaid
-graph TD
-    A[Page / UI Widget] -->|watches| B[Riverpod Provider / Controller]
-    B -->|calls| C[Repository]
-    C -->|talks to| D[ApiClient / Dio]
-    D -->|HTTP| E[(Unofficial NEPSE API)]
-    C -->|falls back to| F[Mock Repository]
-```
+<h3 align="center">Nepal Stock Market (NEPSE), at a glance. 🐂📈🐻</h3>
+
+---
+
+## 📌 Project Overview
+
+**Bull & Bear** is a Flutter mobile app that gives a quick, clean view of the
+Nepal Stock Exchange (NEPSE) — the day's index movement, market summary,
+top gainers/losers, a personal watchlist, a full searchable market list, and
+a manually-tracked investment portfolio with live profit/loss.
+
+It's a personal project built to learn and demonstrate a production-style
+Flutter architecture (Riverpod + GoRouter + a repository-based data layer)
+while solving a real, everyday problem: checking the Nepali stock market
+without digging through a cluttered website.
+
+> ⚠️ **Disclaimer:** Bull & Bear uses an **unofficial, third-party NEPSE data
+> API** for educational and personal, non-commercial purposes only. It is
+> **not affiliated with the Nepal Stock Exchange**. Prices may be delayed,
+> and if the live feed is unavailable the app clearly labels the data shown
+> as demo/preview data instead of presenting it as real-time. Portfolio
+> holdings are entered manually by the user and stored locally on-device —
+> Bull & Bear does not connect to any broker or bank account.
+
+---
+
+## 🔹 Key Features
+
+- **Home Dashboard** — live NEPSE index value with point/percent change,
+  market summary (total turnover, shares traded, transactions, scrips
+  traded), and Top Gainers / Top Losers lists
+- **Watchlist** — star any stock to track its live price and % change in one
+  place
+- **Market** — browse and search every listed company by symbol or name,
+  filter by sector (e.g. Commercial Banks, Development Banks), and star
+  stocks directly from the list
+- **Portfolio** — manually log your holdings (symbol, shares, average cost)
+  and see invested amount, current value, and overall profit/loss update
+  against live prices
+- **More**
+  - **Appearance** — Follow System / Light / Dark theme switcher
+  - **Data** — manual "refresh now" plus a periodic dashboard auto-refresh
+  - **About** — in-app version info and transparent data-source /
+    portfolio-data disclaimers
+- **Graceful data fallback** — if the live NEPSE feed is unreachable, the
+  dashboard clearly flags it with a "Demo data · live feed unavailable"
+  banner instead of silently showing stale numbers as current
+- Custom branded splash screen and app icon
+- Bottom navigation: **Home · Watchlist · Market · Portfolio · More**
+
+---
+
+## 🚀 Technologies Used
+
+- **Framework:** Flutter (Dart)
+- **State Management:** [flutter_riverpod](https://pub.dev/packages/flutter_riverpod)
+- **Navigation:** [go_router](https://pub.dev/packages/go_router)
+- **Networking:** [dio](https://pub.dev/packages/dio)
+- **Local Persistence:** [shared_preferences](https://pub.dev/packages/shared_preferences)
+  (theme preference, watchlist, portfolio holdings)
+- **Formatting:** [intl](https://pub.dev/packages/intl)
+- **Typography:** [google_fonts](https://pub.dev/packages/google_fonts)
+- **App Info:** [package_info_plus](https://pub.dev/packages/package_info_plus)
+- **App Icon Generation:** [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
+- **Data Source:** Unofficial NEPSE REST API
+
+---
+
+## 🏗️ Architecture
+
+The app follows a **feature-first** structure: each screen lives in its own
+folder under `lib/features/`, with its own `data/` (repositories/
+controllers) and `model/` layer, while shared app-wide code (theming,
+routing, the bottom-nav shell, API client) lives under `lib/core/`.
+
 ```
 lib/
-├── core/                 # Cross-cutting concerns, not tied to one feature
-│   ├── api/              # Dio client wrapper
-│   ├── network/          # Connectivity awareness
-│   ├── router/           # go_router navigation config
-│   ├── shell/            # Bottom nav bar shell
-│   ├── theme/            # Colors, light/dark ThemeData, theme controller
-│   └── widgets/          # Shared widgets (e.g. StockAvatar)
+├── core/
+│   ├── api/        # Shared Dio client
+│   ├── router/      # GoRouter route definitions
+│   ├── shell/        # Bottom-nav shell (Home · Watchlist · Market · Portfolio · More)
+│   └── theme/        # Light/dark theming + persisted theme controller
 ├── features/
-│   ├── dashboard/        # Home tab: index, summary, movers
-│   ├── watchlist/        # Starred stocks
-│   ├── market/           # Company directory + search
-│   ├── portfolio/        # Manually tracked holdings + P&L
-│   ├── more/             # Settings & about
-│   └── splash/           # Launch screen
-├── app.dart              # Root MaterialApp.router widget
-└── main.dart             # Entry point
+│   ├── splash/       # Branded splash screen
+│   ├── dashboard/     # Home: NEPSE index, summary, gainers/losers
+│   ├── watchlist/     # Starred stocks
+│   ├── market/        # Searchable, filterable company list
+│   ├── portfolio/     # Manual holdings + live P&L
+│   └── more/          # Appearance, data, about/disclaimers
+└── main.dart
 ```
-🧰 Tech Stack
-Purpose	Package
-State management	flutter_riverpod
-Navigation	go_router
-Networking	dio
-Local persistence	shared_preferences
-Typography	google_fonts
-Connectivity	connectivity_plus
-App icon generation	flutter_launcher_icons
-Base state/network abstractions	`base_kit` (self-authored, MIT-licensed)
-🚀 Getting Started
+
+Each feature talks to the network only through a repository, so the UI
+layer never deals with raw JSON — and a mock/fallback repository keeps the
+app usable (and clearly labeled as such) if the live API is down.
+
+---
+
+## 📱 Screenshots
+
+| Splash | Home | Watchlist |
+|:---:|:---:|:---:|
+| <img src="app-screenshots/Splash Screen.jpg" width="220"> | <img src="app-screenshots/Dashboard.jpg" width="220"> | <img src="app-screenshots/Watchlist.jpg" width="220"> |
+
+| Market | Portfolio |
+|:---:|:---:|
+| <img src="app-screenshots/Market.jpg" width="220"> | <img src="app-screenshots/Portfolio.jpg" width="220"> |
+
+| More — Appearance | More — About |
+|:---:|:---:|
+| <img src="app-screenshots/More-Theme.jpg" width="220"> | <img src="app-screenshots/More-About.jpg" width="220"> |
+
+> Place the screenshot files in an `app-screenshots/` folder at the project
+> root (matching the file names above) so the images render on GitHub.
+
+---
+
+## 🛠️ Installation & Setup
+
+### 1️⃣ Prerequisites
+
+- [Flutter SDK](https://docs.flutter.dev/get-started/install) `>=3.32.0`
+- Dart SDK `>=3.8.0` (bundled with the Flutter SDK above)
+- A connected device/emulator, or a configured Android/iOS toolchain
+
+### 2️⃣ Clone the Repository
+
 ```bash
-git clone https://github.com/<your-username>/bull-and-bear.git
+git clone https://github.com/ShakyaJU/bull-and-bear.git
 cd bull-and-bear
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
 flutter pub get
+```
+
+### 4️⃣ (Optional) Regenerate the App Icon
+
+If you change the source art in `assets/icon/`, regenerate the platform
+launcher icons with:
+
+```bash
 dart run flutter_launcher_icons
+```
+
+### 5️⃣ Run the App 🚀
+
+```bash
 flutter run
 ```
-Requires Flutter 3.32+ and Dart 3.8+.
-📡 Data Source & Disclaimers
-Market data is fetched from an unofficial, third-party NEPSE data API, used strictly for educational and personal, non-commercial purposes. This project:
-Is not affiliated with, endorsed by, or connected to the Nepal Stock Exchange (NEPSE) in any way
-Does not guarantee the accuracy, completeness, or timeliness of any market data shown
-Falls back to clearly-labeled demo data when the live feed is unavailable, so the app never silently mixes real and fake numbers
-Stores Portfolio and Watchlist data only on-device — there is no login, no account, and no server-side storage of personal data
-📄 License
-This project is for personal/educational use. Add your preferred license here (e.g. MIT) if you plan to make the repository public.
+
 ---
-Built as a hands-on learning project covering Flutter architecture, state management, and working with unreliable real-world third-party APIs.
+
+## 🎯 Potential Future Enhancements
+
+- [ ] Price history charts / sparklines on the stock and index views
+- [ ] Price alert notifications for watchlisted stocks
+- [ ] Sector-level market analytics
+- [ ] Export portfolio data
+
+---
+
+## ⭐ Like This Project?
+
+If you find Bull & Bear useful, give the repo a ⭐ **Star** on GitHub!
+
+---
+
+<p align="center">Built by <a href="https://github.com/ShakyaJU">Justin Shakya</a></p>
