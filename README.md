@@ -4,30 +4,35 @@
 
 ---
 
+---
+
 ## 📌 Project Overview
 
-**Bull & Bear** is a Flutter mobile app that gives a quick, clean view of the
-Nepal Stock Exchange (NEPSE) — the day's index movement, market summary,
-top gainers/losers, a personal watchlist, a full searchable market list, and
-a manually-tracked investment portfolio with live profit/loss.
+<table>
+  <tr>
+    <td width="60%" valign="top">
 
-It's a personal project built to learn and demonstrate a production-style
-Flutter architecture (Riverpod + GoRouter + a repository-based data layer)
-while solving a real, everyday problem: checking the Nepali stock market
-without digging through a cluttered website.
+**Bull & Bear** is a Flutter mobile app that provides a quick, clean view of the Nepal Stock Exchange (NEPSE), including daily index movements, market summaries, top gainers and losers, a personal watchlist, searchable listed companies, and a manually tracked portfolio with profit/loss.
 
-> ⚠️ **Disclaimer:** Bull & Bear uses an **unofficial, third-party NEPSE data
-> API** for educational and personal, non-commercial purposes only. It is
-> **not affiliated with the Nepal Stock Exchange**. Prices may be delayed,
-> and if the live feed is unavailable the app clearly labels the data shown
-> as demo/preview data instead of presenting it as real-time. Portfolio
-> holdings are entered manually by the user and stored locally on-device —
-> Bull & Bear does not connect to any broker or bank account.
+Built as a personal project to demonstrate production-style Flutter architecture using **Riverpod, GoRouter, and a repository-based data layer**, it aims to make checking the Nepali stock market simpler and more convenient.
 
----
-<p align="center">
+<br>
+
+> ⚠️ **Disclaimer:** Bull & Bear uses an unofficial, third-party NEPSE data API for educational and personal, non-commercial purposes. It is not affiliated with NEPSE. Prices may be delayed, and demo data is clearly labeled when the live feed is unavailable. Portfolio holdings are entered manually and stored locally on-device; the app does not connect to any broker or bank account.
+
+    </td>
+    <td width="40%" align="center" valign="top">
+
+**🎬 App Demo**
+
+<a href="https://github.com/ShakyaJU/bull-and-bear">
   <img src="https://raw.githubusercontent.com/ShakyaJU/bull-and-bear/main/app-screenshots/bull%26bear.gif" alt="Bull & Bear App Demo" width="300">
-</p>
+</a>
+
+    </td>
+  </tr>
+</table>
+
 ---
 ## 🔹 Key Features
 
