@@ -20,16 +20,16 @@ Built as a personal project to demonstrate production-style Flutter architecture
 
 > ⚠️ **Disclaimer:** Bull & Bear uses an unofficial, third-party NEPSE data API for educational and personal, non-commercial purposes. It is not affiliated with NEPSE. Prices may be delayed, and demo data is clearly labeled when the live feed is unavailable. Portfolio holdings are entered manually and stored locally on-device; the app does not connect to any broker or bank account.
 
-    </td>
-    <td width="40%" align="center" valign="top">
+  
 
 **🎬 App Demo**
 
-<a href="https://github.com/ShakyaJU/bull-and-bear">
-  <img src="https://raw.githubusercontent.com/ShakyaJU/bull-and-bear/main/app-screenshots/bull%26bear.gif" alt="Bull & Bear App Demo" width="300">
-</a>
+<p align="center">
+  <a href="https://github.com/ShakyaJU/bull-and-bear">
+    <img src="https://raw.githubusercontent.com/ShakyaJU/bull-and-bear/main/app-screenshots/bull%26bear.gif" alt="Bull & Bear App Demo" width="300">
+  </a>
+</p>
 
-    </td>
   </tr>
 </table>
 
