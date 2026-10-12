@@ -12,9 +12,15 @@
   <tr>
     <td width="60%" valign="top">
 
-**Bull & Bear** is a Flutter mobile app that provides a quick, clean view of the Nepal Stock Exchange (NEPSE), including daily index movements, market summaries, top gainers and losers, a personal watchlist, searchable listed companies, and a manually tracked portfolio with profit/loss.
+**Bull & Bear** is a Flutter mobile app that gives a quick, clean view of the
+Nepal Stock Exchange (NEPSE) — the day's index movement, market summary,
+top gainers/losers, a personal watchlist, a full searchable market list, and
+a manually-tracked investment portfolio with live profit/loss.
 
-Built as a personal project to demonstrate production-style Flutter architecture using **Riverpod, GoRouter, and a repository-based data layer**, it aims to make checking the Nepali stock market simpler and more convenient.
+It's a personal project built to learn and demonstrate a production-style
+Flutter architecture (Riverpod + GoRouter + a repository-based data layer)
+while solving a real, everyday problem: checking the Nepali stock market
+without digging through a cluttered website.
 
 <br>
 
