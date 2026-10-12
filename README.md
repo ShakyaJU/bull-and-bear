@@ -25,7 +25,10 @@ without digging through a cluttered website.
 > Bull & Bear does not connect to any broker or bank account.
 
 ---
-
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ShakyaJU/bull-and-bear/main/app-screenshots/bull%26bear.gif" alt="Bull & Bear App Demo" width="300">
+</p>
+---
 ## 🔹 Key Features
 
 - **Home Dashboard** — live NEPSE index value with point/percent change,
