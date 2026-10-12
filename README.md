@@ -26,7 +26,13 @@ without digging through a cluttered website.
 
 > ⚠️ **Disclaimer:** Bull & Bear uses an unofficial, third-party NEPSE data API for educational and personal, non-commercial purposes. It is not affiliated with NEPSE. Prices may be delayed, and demo data is clearly labeled when the live feed is unavailable. Portfolio holdings are entered manually and stored locally on-device; the app does not connect to any broker or bank account.
 
-  
+ > ⚠️ **Disclaimer:** Bull & Bear uses an **unofficial, third-party NEPSE data
+> API** for educational and personal, non-commercial purposes only. It is
+> **not affiliated with the Nepal Stock Exchange**. Prices may be delayed,
+> and if the live feed is unavailable the app clearly labels the data shown
+> as demo/preview data instead of presenting it as real-time. Portfolio
+> holdings are entered manually by the user and stored locally on-device —
+> Bull & Bear does not connect to any broker or bank account. 
 
 **🎬 App Demo**
 
